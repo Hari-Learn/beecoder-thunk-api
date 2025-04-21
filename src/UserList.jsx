@@ -9,13 +9,21 @@ const UserList = () =>{
         dispatch(fetchUsers())
     },[])
     
+    const handleDelete = (id) =>{
+        console.log("Delete id :"+id)
+    }
 
     return(
         <>
             <h3>User List</h3>    
                 <ul className="list-group">        
                     {userList.map(user => (
-                        <li key={user.id} className="list-group-item">{user.name} {user.email}</li>
+                        <li key={user.id} className="list-group-item">
+                            {user.name} {user.email}
+                            <button type="button" className="btn btn-danger btn-sm ms-3"
+                            onClick={()=>handleDelete(user.id)}>Delete</button>
+                            </li>
+                       
                     ))}
                 </ul>
         </> 
